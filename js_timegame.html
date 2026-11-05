@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIME Game</title>
+</head>
+<body>
+<h2>Click the Button Game</h2>
+<p>Score: <span id="score">0</span></p>
+<p id="time">Time: 10</p>
+<button onclick="clickMe()" id="btn">Click Me!</button>
+<script>
+let score = 0;
+let time = 10;
+function clickMe() {
+if (time > 0) {
+score++;
+document.getElementById("score").innerHTML = score;
+}
+}
+let timer = setInterval(function() {
+time--;
+document.getElementById("time").innerHTML = "Time: " + time;
+if (time == 0) {
+clearInterval(timer);
+document.getElementById("btn").disabled = true;
+alert("Game Over! Your score is " + score);
+}
+}, 1000);
+</script>
+</body>
+</html>
